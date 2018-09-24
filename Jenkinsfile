@@ -27,6 +27,11 @@ node {
         sh 'docker rmi -f gittest localhost:5000/gittest'
       }
     }
+	stage('Production'){
+      if(env.BRANCH_NAME == 'master'){
+        sh 'docker run -d -p 8090:8080 --rm --name myjava gittest'
+      }
+    }
   }
   catch (err) {
     throw err

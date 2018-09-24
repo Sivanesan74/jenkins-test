@@ -28,7 +28,9 @@ node {
     }
 	stage('Production'){
       if(env.BRANCH_NAME == 'master'){
-	    sh 'docker run --rm -p 8090:8080 --name hellojava localhost:5000/gittest'
+	    sh 'docker container stop hellojava'
+		sh 'docker container rm hellojava'
+	    sh 'docker run -d -p 8090:8080 --name hellojava localhost:5000/gittest'
       }
     }
   }

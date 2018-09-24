@@ -21,7 +21,7 @@ node {
     stage('Deploy'){
       if(env.BRANCH_NAME == 'master'){
         sh 'docker build -t gittest --no-cache .'
-        sh 'docker tag gittest localhost:5000/gittest'
+        sh 'docker tag gittest1 localhost:5000/gittest'
         sh 'docker push localhost:5000/gittest'
         sh 'docker rmi -f gittest localhost:5000/gittest'
       }

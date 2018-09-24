@@ -28,7 +28,8 @@ node {
     }
 	stage('Production'){
       if(env.BRANCH_NAME == 'master'){
-        sh 'docker run -d -p 8090:8080 --rm --name myjava localhost:5000/gittest'
+	    sh 'docker contianer rm myjava -f
+        sh 'docker run -d -p 8090:8080 --name myjava localhost:5000/gittest'
       }
     }
   }

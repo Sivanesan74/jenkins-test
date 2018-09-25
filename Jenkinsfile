@@ -28,7 +28,7 @@ node {
     }
 	stage('Production'){
       if(env.BRANCH_NAME == 'master'){
-	   # sh 'docker rm $(docker stop $(docker ps -a -q --filter ancestor=localhost:5000/gittest --format="{{.ID}}"))'
+	   // sh 'docker rm $(docker stop $(docker ps -a -q --filter ancestor=localhost:5000/gittest --format="{{.ID}}"))'
 	    sh 'docker run -d -p 8090:8080 --name hellojava localhost:5000/gittest'
       }
     }

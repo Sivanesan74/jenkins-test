@@ -10,7 +10,7 @@ node {
       sh 'printenv'
     }
     stage('Build Docker test'){
-     sh 'docker build -t hello-test -f Dockerfile.test --no-cache .'
+     sh 'sudo docker build -t hello-test -f Dockerfile.test --no-cache .'
     }
     stage('Docker test'){
       sh 'docker run --rm hello-test'
